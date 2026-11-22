@@ -1,0 +1,74 @@
+// layouts/sidebarPageLayout.js
+.app-shell {
+  display: flex;
+  min-height: calc(100vh - var(--navbar-h));
+}
+.app-sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  border-right: 1px solid var(--border);
+  background: #fff;
+  padding: 1.5rem 1rem;
+  position: sticky;
+  top: var(--navbar-h);
+  height: calc(100vh - var(--navbar-h));
+  overflow-y: auto;
+}
+.app-main-content {
+  flex: 1;
+  min-width: 0;
+}
+.app-mobile-sidebar {
+  display: none;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.app-sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.25s ease;
+  z-index: 1050;
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.app-sidebar-mobile-head {
+  display: none;
+}
+#regionMenu a {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  &.is-active {
+    background: $primaryColor;
+    color: #fff;
+    .tag {
+      background: #fff;
+      color: $primaryColor;
+    }
+  }
+}
+
+// Миний: Bulma-ийн .container нь өргөн дэлгэцэнд max-width-тэй, голлож байрладаг тул
+// sidebar-ийн хажууд зүүн талд том хоосон зай үүсдэг байсан. Sidebar-тай хуудсанд
+// агуулга sidebar-аас шууд эхэлж, боломжит өргөнийг бүтэн ашиглана.
+.app-main-content {
+  > .section {
+    padding: 2rem 2rem 3rem;
+  }
+  // Bulma 1.x .container:not(.is-max-...) селектор илүү хүчтэй тул !important хэрэглэв
+  .container {
+    max-width: none !important;
+    margin: 0;
+    padding-inline: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .app-main-content > .section {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+}

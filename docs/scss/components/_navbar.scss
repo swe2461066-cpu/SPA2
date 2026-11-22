@@ -1,0 +1,283 @@
+// components/navbar.js
+// Миний: 2 давхар толгой — цагаан лого мөр + хар хөх цэсний зурвас.
+// Толгой бүхэлдээ sticky, гэхдээ top-ийг лого мөрийн өндрөөр хасах тул
+// доош гүйлгэхэд лого мөр нуугдаж, зөвхөн цэсний зурвас дээр наалдаж үлдэнэ.
+:root {
+  --topbar-h: 5.5rem;
+}
+// #navbar div нь зөвхөн header-ийг ороодог тул sticky ажиллах зайгүй — body-г эх болгоно
+#navbar {
+  display: contents;
+}
+.app-header {
+  position: sticky;
+  top: calc(-1 * var(--topbar-h));
+  z-index: 1000;
+  background: var(--bulma-scheme-main);
+}
+.app-topbar {
+  height: var(--topbar-h);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+.app-top-search {
+  justify-self: start;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  color: var(--ink);
+  font-size: 1.15rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    color: $secondaryColor;
+  }
+}
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--ink);
+  img {
+    width: 44px;
+    height: 50px;
+  }
+  &:hover {
+    color: var(--ink);
+  }
+}
+.app-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  strong {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: inherit;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+  small {
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    white-space: nowrap;
+  }
+}
+.app-top-right {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.app-auth {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.app-login-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $secondaryColor;
+  font-weight: 500;
+  i {
+    font-size: 1.5rem;
+    color: var(--ink);
+  }
+  &:hover {
+    color: var(--ink);
+  }
+}
+.app-user {
+  font-weight: 600;
+}
+.app-nav-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.app-register-btn {
+  font-weight: 600;
+}
+
+// Миний: хайлтын мөр (🔍 дарахад нээгдэнэ)
+.app-search-panel {
+  display: none;
+  border-top: 1px solid var(--border);
+  background: var(--bulma-scheme-main);
+  padding-block: 0.75rem;
+  &.is-open {
+    display: block;
+    animation: app-fade 0.2s ease both;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .icon {
+    color: var(--text-soft);
+  }
+  .input {
+    flex: 1;
+  }
+}
+
+// Хар хөх цэсний зурвас
+.app-navbar {
+  background: $primaryColor;
+}
+.app-navbar-links {
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.5rem, 3vw, 3rem);
+  min-height: var(--navbar-h);
+  .navbar-item {
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 0 0.25rem;
+    font-weight: 400;
+    position: relative;
+    background: transparent;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3px;
+      background: $secondaryColor;
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+    &:hover {
+      color: #fff;
+      background: transparent;
+    }
+    &:hover::after,
+    &.is-active::after {
+      transform: scaleX(1);
+    }
+    &.is-active {
+      color: #fff;
+      font-weight: 600;
+    }
+  }
+}
+
+.navbar-burger {
+  display: none;
+  color: var(--ink);
+  background: none;
+  border: 0;
+  margin: 0;
+}
+
+// Таблет, утас: цэсний зурвас burger товчоор нээгдэнэ, нэвтрэх хэсэг жижгэрнэ
+@media screen and (max-width: 1023px) {
+  :root {
+    --topbar-h: 4.25rem;
+  }
+  .app-header {
+    top: 0;
+    box-shadow: 0 1px 0 var(--border);
+  }
+  .app-topbar {
+    grid-template-columns: auto 1fr auto;
+  }
+  .app-top-search {
+    display: none;
+  }
+  .app-logo {
+    justify-self: start;
+    img {
+      width: 34px;
+      height: 39px;
+    }
+  }
+  .app-logo-text {
+    strong {
+      font-size: 1.1rem;
+    }
+    small {
+      font-size: 0.72rem;
+    }
+  }
+  .navbar-burger {
+    display: flex;
+  }
+  .app-navbar {
+    display: none;
+    &.is-active {
+      display: block;
+    }
+  }
+  // Утсан дээр 🔍 товч нуугдсан тул хайлтын мөр burger цэстэй хамт нээгдэнэ
+  .app-header:has(.app-navbar.is-active) .app-search-panel {
+    display: block;
+  }
+  .app-navbar-links {
+    flex-direction: column;
+    gap: 0;
+    padding-block: 0.5rem;
+    .navbar-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      &::after {
+        right: auto;
+        top: 25%;
+        bottom: 25%;
+        width: 3px;
+        height: auto;
+        left: -0.75rem;
+        transform: scaleY(0);
+      }
+      &.is-active::after {
+        transform: scaleY(1);
+      }
+    }
+  }
+}
+@media screen and (max-width: 560px) {
+  .app-logo-text small,
+  .app-login-link span,
+  .app-logout span:not(.icon) {
+    display: none;
+  }
+  .app-topbar {
+    gap: 0.5rem;
+  }
+  .app-logo {
+    gap: 0.45rem;
+    min-width: 0;
+  }
+  .app-logo-text {
+    min-width: 0;
+    strong {
+      font-size: 1rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .app-register-btn {
+    font-size: 0.75rem;
+    padding-inline: 0.6rem !important;
+  }
+  .app-auth {
+    gap: 0.5rem;
+  }
+  .app-top-right {
+    gap: 0.15rem;
+  }
+  .navbar-burger {
+    width: 2.5rem;
+  }
+}

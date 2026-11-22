@@ -1,0 +1,141 @@
+// pages/profilePage.js
+.app-profile-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.app-completion {
+  width: min(100%, 360px);
+  margin-bottom: 0 !important;
+  padding: 1rem 1.25rem;
+}
+
+// Зүүн талын карт: дугуй зураг + камерын товч
+.app-avatar {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: var(--hover-bg);
+  border: 4px solid rgba($primaryColor, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primaryColor;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+.app-avatar-btn {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: $primaryColor;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+.app-side-box .title {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.app-quick li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+.app-tip {
+  border-left: 4px solid hsl(153, 53%, 53%);
+}
+
+// Баруун талын хэсэг
+.app-section {
+  border-left: 4px solid transparent;
+  transition: border-color 0.2s ease;
+  &.is-editing {
+    border-left-color: $secondaryColor;
+  }
+}
+.app-section-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.app-section-icon {
+  width: 2.5rem;
+  height: 2.5rem !important;
+  border-radius: 10px !important;
+  font-size: 1.1rem !important;
+}
+// Харах горимд талбаруудыг багана болгон, хуваах зураасаар
+.app-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem 1.25rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.app-field-name {
+  font-size: 0.75rem;
+  color: var(--text-soft);
+}
+.app-field-value {
+  font-weight: 600;
+  word-break: break-word;
+}
+
+// Бичиг баримтын карт
+.app-doc {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  height: 100%;
+  &.is-uploaded {
+    border-style: solid;
+    border-color: hsl(153, 53%, 53%);
+  }
+  .buttons {
+    margin-left: auto;
+    flex-wrap: nowrap;
+  }
+}
+.app-doc-text {
+  min-width: 0;
+  p:last-child {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// Харанхуй горимд хуваах зураас, дугуй зургийн дэвсгэр
+@media (prefers-color-scheme: dark) {
+  .app-fields,
+  .app-doc {
+    border-color: var(--bulma-border);
+  }
+  .app-avatar {
+    background: var(--bulma-scheme-main-ter);
+    color: #93c5fd;
+  }
+}

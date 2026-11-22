@@ -1,0 +1,131 @@
+@use "sass:color";
+
+// Миний: сургуулийн загварын өнгө — хар хөх (navy) + ягаан-хөх (violet)
+$primaryColor: #1d1d36;
+$primaryColorDark: color.scale($primaryColor, $lightness: -20%);
+$secondaryColor: #5c5cdb;
+
+:root {
+  --border: #e5e9f0;
+  --sidebar-width: clamp(240px, 20vw, 300px);
+  --text-soft: #64748b;
+  --hover-bg: #f3f6fa;
+  --overlay: rgba(15, 23, 42, 0.55);
+  --navbar-h: 3.25rem;
+  --ink: #1d1d36;
+}
+
+@import "../../node_modules/bulma/bulma";
+@import "./components/navbar";
+@import "./components/scholarshipCard";
+@import "./components/profile";
+@import "./layouts/sidebarPageLayout";
+@import "./theme";
+
+// Миний: Bulma-ийн .container өргөн дэлгэцэнд 1344px-ээр хязгаарлагдаж, хоёр талд том хоосон зай
+// үлддэг байсан. Navbar, hero, агуулгыг дэлгэцийн бүтэн өргөнөөр, хажуугийн тогтмол зайтай болгов.
+// (Bulma 1.x .container:not(.is-max-...) селектор илүү хүчтэй тул !important хэрэглэв)
+.container {
+  max-width: none !important;
+  padding-inline: clamp(1rem, 4vw, 4rem);
+}
+
+// Нийтлэг гарчиг
+.app-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+.app-line {
+  width: 64px;
+  height: 4px;
+  border-radius: 2px;
+  background: $secondaryColor;
+  margin: 0.4rem 0 1rem;
+}
+.app-subtitle {
+  color: var(--text-soft);
+  margin-bottom: 1.5rem;
+}
+
+// Түвшний товч ба мэргэжлийн сонголтыг нэг мөрөнд
+.app-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+// Нүүр хуудасны мэргэжлийн товч
+.app-field-tag {
+  border: 1px solid var(--border);
+}
+
+// Тэтгэлгийн тоо
+.app-count {
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+// Зөвлөгөө авах хуудасны бичиг баримтын жагсаалт
+.app-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.app-404 {
+  font-size: 7rem;
+  font-weight: 900;
+  line-height: 1;
+  color: $secondaryColor;
+}
+
+/* DESKTOP (>=769px): sidebar байнга харагдана */
+@media screen and (min-width: 769px) {
+  .app-mobile-sidebar,
+  .app-sidebar-mobile-head {
+    display: none;
+  }
+}
+
+/* MOBILE (<=768px): sidebar зүүн талаас гулсаж гарна */
+@media screen and (max-width: 768px) {
+  .app-shell {
+    display: block;
+  }
+  .app-mobile-sidebar {
+    display: block;
+  }
+  .app-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    max-width: 85vw;
+    min-width: unset;
+    height: 100vh;
+    z-index: 1100;
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.14);
+  }
+  .app-sidebar.is-open {
+    transform: translateX(0);
+  }
+  .app-sidebar-mobile-head {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .app-title {
+    font-size: 1.6rem;
+  }
+}
+
+// Миний: харанхуй горимд гарчиг, sidebar-ийн өнгийг Bulma-ийн харанхуй өнгөнд тааруулна
+@media (prefers-color-scheme: dark) {
+  .app-sidebar {
+    background: var(--bulma-scheme-main);
+  }
+}

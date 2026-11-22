@@ -1,0 +1,98 @@
+// components/scholarshipCard.js
+.app-scholar-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba($primaryColor, 0.35);
+  }
+  .card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.app-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.app-country {
+  font-weight: 600;
+}
+// Бүрэн / хэсэгчилсэн тэмдэг
+.app-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  &.is-full {
+    color: #047857;
+    background: #d1fae5;
+  }
+  &.is-partial {
+    color: #92400e;
+    background: #fef3c7;
+  }
+}
+.app-scholar-provider {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+}
+// Тайлбарыг 3 мөрөөр хязгаарлаж картуудын өндрийг жигд болгоно
+.app-scholar-text {
+  color: var(--text-soft);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.app-card-meta {
+  margin-top: auto;
+  padding-top: 1rem;
+  display: grid;
+  gap: 0.6rem;
+}
+.app-field-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-bottom: 0.3rem;
+}
+.app-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.app-deadline {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  i {
+    color: $secondaryColor;
+    margin-right: 0.25rem;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .app-badge.is-full {
+    color: #6ee7b7;
+    background: rgba(16, 185, 129, 0.15);
+  }
+  .app-badge.is-partial {
+    color: #fcd34d;
+    background: rgba(245, 158, 11, 0.15);
+  }
+}

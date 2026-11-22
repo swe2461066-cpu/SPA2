@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Тэтгэлэг — гадаадад суралцах тэтгэлгийн мэдээллийн систем" />
+    <meta name="google" content="notranslate" />
+    <link rel="icon" href="./img/icon/logo.svg" type="image/svg+xml" />
+    <!-- Миний: загварын Poppins фонт кирилл үсэггүй тул түүнтэй төстэй, кирилл дэмждэг Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script defer src="./js/fontawesomeall.min.js"></script>
+    <title>Тэтгэлэг</title>
+  </head>
+  <body>
+    <!-- SPA: зөвхөн энэ нэг HTML ачаалагдана. Navbar, хуудсын агуулгыг JavaScript зурна. -->
+    <div id="navbar"></div>
+    <main>
+      <div id="app"></div>
+    </main>
+    <!-- Бүх хуудсанд харагдах доод хэсэг -->
+    <footer class="app-footer">
+      <div class="container app-footer-grid">
+        <a class="app-footer-brand" href="#/home">
+          <img src="./img/icon/logo.svg" alt="" width="52" height="58" />
+          <span><strong>Тэтгэлэг хайх</strong><small>Гадаадад суралцах портал</small></span>
+        </a>
+        <div>
+          <p class="app-footer-title">Цэс</p>
+          <nav class="app-footer-links is-two">
+            <a href="#/home">Нүүр</a>
+            <a href="#/scholarships">Тэтгэлгүүд</a>
+            <a href="#/eligibility">Тэнцэх эсэх</a>
+            <a href="#/contact">Зөвлөгөө авах</a>
+            <a href="#/register">Бүртгүүлэх</a>
+            <a href="#/profile">Миний профайл</a>
+          </nav>
+        </div>
+        <div>
+          <p class="app-footer-title">Бүс нутаг</p>
+          <nav class="app-footer-links">
+            <a href="#/scholarships?region=asia">Ази</a>
+            <a href="#/scholarships?region=europe">Европ</a>
+            <a href="#/scholarships?region=americas">Америк, Австрали</a>
+            <a href="#/scholarships?region=mongolia">Монгол Улс</a>
+          </nav>
+        </div>
+        <div>
+          <p class="app-footer-title">Анхааруулга</p>
+          <p class="app-footer-note">Тэтгэлгийн хугацаа, нөхцөл жил бүр өөрчлөгддөг тул албан сайтаас нь заавал шалгана уу.</p>
+        </div>
+      </div>
+      <p class="app-footer-copy">© 2026 Тэтгэлэг хайх · CON354 сургалтын төсөл · Зураг: Unsplash</p>
+    </footer>
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>

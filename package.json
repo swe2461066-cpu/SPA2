@@ -1,0 +1,23 @@
+{
+  "name": "spa2-scholarship",
+  "version": "1.0.0",
+  "description": "Тэтгэлэг — гадаадад суралцах тэтгэлгийн мэдээллийн Vanilla JS SPA (CON354, 4-р ажил)",
+  "scripts": {
+    "sass": "sass --watch src/scss/main.scss src/css/main.css --no-source-map --quiet-deps --silence-deprecation=import",
+    "sass:build": "sass src/scss/main.scss src/css/main.css --no-source-map --quiet-deps --silence-deprecation=import",
+    "docs": "node -e \"const fs=require('fs');fs.rmSync('docs',{recursive:true,force:true});fs.cpSync('src','docs',{recursive:true})\"",
+    "start": "npx --yes http-server src -p 5501 -c-1"
+  },
+  "keywords": [
+    "spa",
+    "scholarship",
+    "education",
+    "bulma"
+  ],
+  "author": "swe2461066",
+  "license": "ISC",
+  "devDependencies": {
+    "bulma": "^1.0.4",
+    "sass": "^1.108.2"
+  }
+}
