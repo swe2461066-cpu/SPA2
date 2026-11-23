@@ -1,8 +1,8 @@
-import { REGIONS } from "../data/scholarships.js";
-import { REQUIREMENTS, SEARCH_KEYWORDS } from "../data/requirements.js";
+import { getRegions } from "../services/scholarshipService.js";
 
 // Миний: тэтгэлгийг сургууль, улс, хот, нэрээр хайх.
 // Хайлтын үг бүр (зайгаар тусгаарласан) тэтгэлгийн мэдээллийн аль нэг хэсэгт байх ёстой.
+// 5-р ажлаас: монгол, англи нэрийн аль алинаар нь хайна (service-ийн searchText).
 
 const norm = (t) => String(t || "").toLowerCase().trim();
 
@@ -21,25 +21,20 @@ function contains(text, word) {
 
 // Нэг тэтгэлгийг хайлтын үгтэй харьцуулна.
 // Буцаах: null (таарахгүй) эсвэл { universities: [хайлтад таарсан сургуулиуд] }
-export function matchScholarship(s, region, query) {
+export function matchScholarship(s, query) {
   const words = norm(query).split(/\s+/).filter(Boolean);
-  const unis = REQUIREMENTS[s.name]?.universities || [];
   if (!words.length) return { universities: [] };
-
-  const haystack = norm([s.name, s.country, s.provider, region.name, SEARCH_KEYWORDS[s.name], ...unis].join(" "));
-  if (!words.every((w) => contains(haystack, w))) return null;
+  if (!words.every((w) => contains(s.searchText, w))) return null;
 
   // Аль сургууль таарсныг тодруулна: эхлээд бүх үгтэй таарсныг, үгүй бол ерөнхий бус аль нэг үгтэй таарсныг
   const specific = words.filter((w) => !GENERIC.has(w));
-  const all = unis.filter((u) => words.every((w) => contains(norm(u), w)));
-  const any = unis.filter((u) => specific.some((w) => contains(norm(u), w)));
-  return { universities: all.length ? all : any };
+  const all = s.uniPairs.filter((u) => words.every((w) => contains(u.text, w)));
+  const any = s.uniPairs.filter((u) => specific.some((w) => contains(u.text, w)));
+  return { universities: (all.length ? all : any).map((u) => u.label) };
 }
 
-// Хайлтын санал болгох жагсаалт: бүх улс + бүх сургууль (давхардалгүй)
+// Хайлтын санал болгох жагсаалт: бүх улс + бүх сургууль (одоогийн хэлээр, давхардалгүй)
 export function searchSuggestions() {
-  const list = REGIONS.flatMap((r) =>
-    r.scholarships.flatMap((s) => [s.country, ...(REQUIREMENTS[s.name]?.universities || [])])
-  );
+  const list = getRegions().flatMap((r) => r.scholarships.flatMap((s) => [s.country, ...s.universities]));
   return [...new Set(list)].sort((a, b) => a.localeCompare(b, "mn"));
 }

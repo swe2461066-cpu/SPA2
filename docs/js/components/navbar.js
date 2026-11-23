@@ -1,40 +1,51 @@
 import { getUser, logout } from "../fn/auth.js";
 import { escapeHtml } from "../fn/escapeHtml.js";
+import { t, getLang, setLang } from "../i18n/i18n.js";
+import { currentTheme, toggleTheme } from "../fn/theme.js";
 
 // Дээд цэс. Цэсийн мөрүүдийг массиваас үүсгэнэ.
 // Миний: номд <a> бүрийг гараар давтаж бичсэн байсныг NAV_ITEMS массив болгосон.
+// 5–6-р ажлаас: Тойм, Зардлын тооцоо, Гарын авлага нэмэгдэж, бичвэрүүд t()-ээр 2 хэлтэй болов.
+// "Миний профайл" нь баруун дээд буланд (нэвтэрсэн үед) байгаа тул цэснээс хасав.
 const NAV_ITEMS = [
-  { href: "#/home", label: "Нүүр" },
-  { href: "#/scholarships", label: "Тэтгэлгүүд" },
-  { href: "#/eligibility", label: "Тэнцэх эсэх" },
-  { href: "#/contact", label: "Зөвлөгөө авах" },
-  { href: "#/profile", label: "Миний профайл" },
+  { href: "#/home", key: "nav.home" },
+  { href: "#/scholarships", key: "nav.scholarships" },
+  { href: "#/overview", key: "nav.overview" },
+  { href: "#/eligibility", key: "nav.eligibility" },
+  { href: "#/calculator", key: "nav.calculator" },
+  { href: "#/guides", key: "nav.guides" },
+  { href: "#/contact", key: "nav.contact" },
 ];
 
+let root = null;
+
 // Миний: сургуулийн сайтын загвар шиг 2 давхар толгой —
-//   1) цагаан мөр: зүүнд хайлт, голд лого, баруунд нэвтрэх хэсэг (доош гүйлгэхэд нуугдана)
+//   1) цагаан мөр: зүүнд хайлт, голд лого, баруунд хэл солих + нэвтрэх хэсэг (доош гүйлгэхэд нуугдана)
 //   2) хар хөх цэсний зурвас (дээрээ наалдаж үлдэнэ)
 export function renderNavbar() {
-  const links = NAV_ITEMS.map(
-    (item) => `<a class="navbar-item" href="${item.href}">${item.label}</a>`
-  ).join("");
+  const links = NAV_ITEMS.map((item) => `<a class="navbar-item" href="${item.href}">${t(item.key)}</a>`).join("");
+  const other = getLang() === "mn" ? "en" : "mn";
 
   return `
     <header class="app-header">
       <div class="container app-topbar">
-        <button class="app-top-search" id="searchToggle" type="button" aria-label="Сургууль, улсаар хайх" aria-expanded="false" aria-controls="headerSearch" title="Сургууль, улсаар хайх">
+        <button class="app-top-search" id="searchToggle" type="button" aria-label="${t("header.search")}" aria-expanded="false" aria-controls="headerSearch" title="${t("header.search")}">
           <i class="fas fa-magnifying-glass"></i>
         </button>
         <a class="app-logo" href="#/home">
           <img src="./img/icon/logo.svg" alt="" width="44" height="50" />
           <span class="app-logo-text">
-            <strong>Тэтгэлэг хайх</strong>
-            <small>Гадаадад суралцах портал</small>
+            <strong>${t("brand.name")}</strong>
+            <small>${t("brand.tagline")}</small>
           </span>
         </a>
         <div class="app-top-right">
+          <button class="app-lang" id="langToggle" type="button" data-lang="${other}" title="${t("header.lang")}" aria-label="${t("header.lang")}">
+            <i class="fas fa-globe"></i><span>${other.toUpperCase()}</span>
+          </button>
+          <button class="app-lang app-theme" id="themeToggle" type="button">${renderThemeIcon()}</button>
           <div class="app-auth" id="authArea">${renderAuthArea()}</div>
-          <button class="navbar-burger" type="button" aria-label="Цэс" aria-expanded="false" data-target="topNavbar">
+          <button class="navbar-burger" type="button" aria-label="${t("nav.menu")}" aria-expanded="false" data-target="topNavbar">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -46,11 +57,11 @@ export function renderNavbar() {
         <div class="container">
           <span class="icon"><i class="fas fa-magnifying-glass"></i></span>
           <input class="input" name="q" type="search" autocomplete="off" maxlength="80"
-            placeholder="Сонирхож буй сургууль эсвэл улс — жишээ: Токио, KAIST, Герман" aria-label="Сургууль эсвэл улсаар хайх" />
-          <button class="button is-primary" type="submit">Хайх</button>
+            placeholder="${t("header.searchPlaceholder")}" aria-label="${t("header.search")}" />
+          <button class="button is-primary" type="submit">${t("header.searchBtn")}</button>
         </div>
       </form>
-      <nav class="app-navbar" id="topNavbar" aria-label="Үндсэн цэс">
+      <nav class="app-navbar" id="topNavbar" aria-label="${t("nav.menu")}">
         <div class="container app-navbar-links">${links}</div>
       </nav>
     </header>
@@ -65,19 +76,19 @@ function renderAuthArea() {
   if (!user) {
     return `
       <a class="app-login-link" href="#/login">
-        <i class="fas fa-circle-user"></i><span>Нэвтрэх</span>
+        <i class="fas fa-circle-user"></i><span>${t("header.login")}</span>
       </a>
-      <a class="button is-primary app-register-btn" href="#/register">Бүртгүүлэх</a>`;
+      <a class="button is-primary app-register-btn" href="#/register">${t("header.register")}</a>`;
   }
   const avatar = user.photo
     ? `<img class="app-nav-avatar" src="${user.photo}" alt="" />`
     : `<i class="fas fa-circle-user"></i>`;
   return `
-    <a class="app-login-link app-user" href="#/profile" title="Миний профайл">
+    <a class="app-login-link app-user" href="#/profile" title="${t("nav.profile")}">
       ${avatar}<span>${escapeHtml(user.name.split(" ")[0])}</span>
     </a>
-    <button class="button is-small app-logout" id="logoutBtn" type="button" title="Гарах">
-      <span class="icon"><i class="fas fa-right-from-bracket"></i></span><span>Гарах</span>
+    <button class="button is-small app-logout" id="logoutBtn" type="button" title="${t("header.logout")}">
+      <span class="icon"><i class="fas fa-right-from-bracket"></i></span><span>${t("header.logout")}</span>
     </button>`;
 }
 
@@ -94,32 +105,33 @@ function refreshAuthArea() {
 }
 
 // Mobile дээр burger товчоор цэсийг нээх/хаах.
+function setMenuOpen(open) {
+  const burger = document.querySelector(".app-header .navbar-burger");
+  const menu = document.getElementById("topNavbar");
+  if (!burger || !menu) return;
+  burger.classList.toggle("is-active", open);
+  menu.classList.toggle("is-active", open);
+  burger.setAttribute("aria-expanded", String(open));
+}
+
 export function initNavbar() {
   const burger = document.querySelector(".app-header .navbar-burger");
-  const menu = document.getElementById(burger?.dataset.target);
+  const menu = document.getElementById("topNavbar");
   if (!burger || !menu) return;
-
-  const setOpen = (open) => {
-    burger.classList.toggle("is-active", open);
-    menu.classList.toggle("is-active", open);
-    burger.setAttribute("aria-expanded", String(open));
-  };
-
-  burger.addEventListener("click", () => setOpen(!menu.classList.contains("is-active")));
+  burger.addEventListener("click", () => setMenuOpen(!menu.classList.contains("is-active")));
   // Цэсний холбоос дээр дарахад mobile цэс хаагдана.
-  // (event delegation — дараа нь дахин зурагддаг "Бүртгүүлэх" товч ч хамрагдана)
   menu.addEventListener("click", (e) => {
-    if (e.target.closest("a, button")) setOpen(false);
-  });
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 1023) setOpen(false);
+    if (e.target.closest("a, button")) setMenuOpen(false);
   });
 }
 
 // Миний: одоогийн хуудасны цэсийг тодруулна (номд идэвхтэй цэс харагддаггүй байсан).
 export function setActiveNavLink(hash) {
   document.querySelectorAll("#topNavbar .navbar-item").forEach((a) => {
-    a.classList.toggle("is-active", a.getAttribute("href") === hash);
+    const on = a.getAttribute("href") === hash;
+    a.classList.toggle("is-active", on);
+    if (on) a.setAttribute("aria-current", "page");
+    else a.removeAttribute("aria-current");
   });
 }
 
@@ -147,17 +159,61 @@ function initSearch() {
     e.preventDefault();
     const q = input.value.trim();
     setOpen(false);
-    document.querySelector(".app-header .navbar-burger.is-active")?.click();
+    setMenuOpen(false);
     input.value = "";
     window.location.hash = `#/scholarships${q ? `?q=${encodeURIComponent(q)}` : ""}`;
   });
 }
 
-export function mountNavbar(root) {
+// Хэл солих товч (2.9)
+function initLang() {
+  document.getElementById("langToggle")?.addEventListener("click", (e) => {
+    setLang(e.currentTarget.dataset.lang);
+  });
+}
+
+// Миний: цайвар / харанхуй горим солих товч. Харанхуй үед нар (цайвар руу), цайвар үед сар дүрс.
+function renderThemeIcon() {
+  return `<i class="fas ${currentTheme() === "dark" ? "fa-sun" : "fa-moon"}"></i>`;
+}
+function syncThemeButton() {
+  const btn = document.getElementById("themeToggle");
+  if (!btn) return;
+  const label = t(currentTheme() === "dark" ? "header.themeLight" : "header.themeDark");
+  btn.innerHTML = renderThemeIcon();
+  btn.title = label;
+  btn.setAttribute("aria-label", label);
+}
+function initTheme() {
+  document.getElementById("themeToggle")?.addEventListener("click", toggleTheme);
+  syncThemeButton();
+}
+
+// Navbar-ийг (дахин) зурна. Хэл солигдоход app.js үүнийг дуудна.
+export function renderNavbarInto() {
   if (!root) return;
   root.innerHTML = renderNavbar();
   initNavbar();
   initSearch();
+  initLang();
+  initTheme();
+  refreshAuthArea();
+  document.getElementById("langToggle")?.focus({ preventScroll: true });
+}
+
+// Window-ийн listener-уудыг нэг л удаа бүртгэнэ (дахин зурахад давхардахгүй).
+export function mountNavbar(el) {
+  if (!el) return;
+  root = el;
+  root.innerHTML = renderNavbar();
+  initNavbar();
+  initSearch();
+  initLang();
+  initTheme();
   refreshAuthArea();
   window.addEventListener("auth-change", refreshAuthArea);
+  window.addEventListener("theme-change", syncThemeButton);
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1023) setMenuOpen(false);
+  });
 }

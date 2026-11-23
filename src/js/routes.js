@@ -1,8 +1,12 @@
 // Hash зам → хуудас зурах функц, хуудасны гарчиг.
-// Миний: номд зөвхөн функц байсан бол энд title нэмж, router нь document.title-ийг сольдог болгосон.
+// Миний: номд зөвхөн функц байсан бол энд гарчиг нэмж, router нь document.title-ийг сольдог болгосон.
+// 5–6-р ажлаас: гарчиг нь орчуулгын түлхүүр (titleKey), шинээр Тойм, Зардлын тооцоо, Гарын авлага.
 import { renderHomePage } from "./pages/homePage.js";
 import { renderScholarshipsPage } from "./pages/scholarshipsPage.js";
+import { renderOverviewPage } from "./pages/overviewPage.js";
 import { renderEligibilityPage } from "./pages/eligibilityPage.js";
+import { renderCalculatorPage } from "./pages/calculatorPage.js";
+import { renderGuidesPage } from "./pages/guidesPage.js";
 import { renderContactPage } from "./pages/contactPage.js";
 import { renderRegisterPage } from "./pages/registerPage.js";
 import { renderLoginPage } from "./pages/loginPage.js";
@@ -12,12 +16,15 @@ import { renderNotFoundPage } from "./pages/notFoundPage.js";
 export const DEFAULT_ROUTE = "#/home";
 
 export const routes = {
-  "#/home": { title: "Нүүр", render: renderHomePage },
-  "#/scholarships": { title: "Тэтгэлгүүд", render: renderScholarshipsPage },
-  "#/eligibility": { title: "Тэнцэх эсэхээ шалгах", render: renderEligibilityPage },
-  "#/contact": { title: "Зөвлөгөө авах", render: renderContactPage },
-  "#/register": { title: "Бүртгүүлэх", render: renderRegisterPage },
-  "#/login": { title: "Нэвтрэх", render: renderLoginPage },
-  "#/profile": { title: "Миний профайл", render: renderProfilePage },
-  "#/404": { title: "Хуудас олдсонгүй", render: renderNotFoundPage },
+  "#/home": { titleKey: "title.home", render: renderHomePage },
+  "#/scholarships": { titleKey: "title.scholarships", render: renderScholarshipsPage },
+  "#/overview": { titleKey: "title.overview", render: renderOverviewPage },
+  "#/eligibility": { titleKey: "title.eligibility", render: renderEligibilityPage },
+  "#/calculator": { titleKey: "title.calculator", render: renderCalculatorPage },
+  "#/guides": { titleKey: "title.guides", render: renderGuidesPage },
+  "#/contact": { titleKey: "title.contact", render: renderContactPage },
+  "#/register": { titleKey: "title.register", render: renderRegisterPage },
+  "#/login": { titleKey: "title.login", render: renderLoginPage },
+  "#/profile": { titleKey: "title.profile", render: renderProfilePage },
+  "#/404": { titleKey: "title.404", render: renderNotFoundPage },
 };

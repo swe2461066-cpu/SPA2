@@ -15,10 +15,27 @@ $secondaryColor: #5c5cdb;
   --ink: #1d1d36;
 }
 
+// Миний: харанхуй горим 2 янзаар асна — (1) систем dark бөгөөд хэрэглэгч "цайвар" сонгоогүй үед,
+// (2) хэрэглэгч товчоор "харанхуй" сонгосон үед (html[data-theme="dark"]). @content доторх "&" = html.
+@mixin dark {
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) {
+      @content;
+    }
+  }
+  html[data-theme="dark"] {
+    @content;
+  }
+}
+
 @import "../../node_modules/bulma/bulma";
 @import "./components/navbar";
 @import "./components/scholarshipCard";
 @import "./components/profile";
+@import "./components/imageModal";
+@import "./components/map";
+@import "./components/calculator";
+@import "./components/guides";
 @import "./layouts/sidebarPageLayout";
 @import "./theme";
 
@@ -124,7 +141,7 @@ $secondaryColor: #5c5cdb;
 }
 
 // Миний: харанхуй горимд гарчиг, sidebar-ийн өнгийг Bulma-ийн харанхуй өнгөнд тааруулна
-@media (prefers-color-scheme: dark) {
+@include dark {
   .app-sidebar {
     background: var(--bulma-scheme-main);
   }

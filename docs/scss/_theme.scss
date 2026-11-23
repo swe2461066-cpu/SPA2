@@ -30,6 +30,10 @@
 html {
   scroll-behavior: smooth;
 }
+// Миний: цайвар горимыг гараар сонгосон үед хөтчийн input, scrollbar ч цайвар байна
+html[data-theme="light"] {
+  color-scheme: light;
+}
 body {
   background: var(--page-bg);
   -webkit-font-smoothing: antialiased;
@@ -419,8 +423,9 @@ body {
 }
 
 // ---------- Харанхуй горим ----------
-@media (prefers-color-scheme: dark) {
-  :root {
+@include dark {
+  & {
+    color-scheme: dark;
     --border: #2a2a42;
     --text-soft: #a1a1bd;
     --hover-bg: #1f1f33;

@@ -1,0 +1,166 @@
+// components/map.js, components/infoModal.js, pages/overviewPage.js (2.10)
+.app-map-box {
+  position: relative;
+}
+.app-map {
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  path {
+    fill: #dfe3ee;
+    stroke: #fff;
+    stroke-width: 0.5;
+    transition: fill 0.15s ease;
+  }
+  path.is-has {
+    fill: $secondaryColor;
+    cursor: pointer;
+  }
+  path.is-eu {
+    fill: #b9b9f0;
+    cursor: pointer;
+  }
+  path.is-has:hover,
+  path.is-eu:hover,
+  path:focus-visible {
+    fill: $primaryColor;
+    outline: none;
+  }
+}
+.app-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  margin-bottom: 0.75rem;
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  i {
+    width: 0.9rem;
+    height: 0.9rem;
+    background: #dfe3ee;
+    &.is-has {
+      background: $secondaryColor;
+    }
+    &.is-eu {
+      background: #b9b9f0;
+    }
+  }
+}
+.app-map-tip {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  min-width: 140px;
+  padding: 0.45rem 0.7rem;
+  background: $primaryColor;
+  color: #fff;
+  font-size: 0.82rem;
+  box-shadow: var(--shadow-lg);
+  span {
+    color: #c7c7f5;
+  }
+}
+.app-map-hint {
+  margin-top: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--text-soft);
+}
+
+.app-overview-text p {
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+.app-overview-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  div {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem;
+    border-top: 3px solid $secondaryColor;
+    background: var(--hover-bg);
+  }
+  strong {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  span {
+    font-size: 0.78rem;
+    color: var(--text-soft);
+  }
+}
+
+// Улсын тэтгэлгүүдийн modal
+.app-info-modal {
+  width: min(560px, 94vw);
+}
+.app-info-list {
+  display: grid;
+  gap: 0.5rem;
+}
+.app-info-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  input {
+    margin-top: 0.3rem;
+    accent-color: $secondaryColor;
+  }
+  span {
+    display: flex;
+    flex-direction: column;
+  }
+  small {
+    color: var(--text-soft);
+  }
+  &:has(input:checked) {
+    border-color: $secondaryColor;
+    background: rgba($secondaryColor, 0.08);
+  }
+}
+.app-info-foot {
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  .button[disabled] {
+    pointer-events: none;
+  }
+}
+
+@include dark {
+  .app-map path {
+    fill: #2c2c46;
+    stroke: #121220;
+  }
+  .app-map path.is-eu,
+  .app-map-legend i.is-eu {
+    background: #4b4b8f;
+    fill: #4b4b8f;
+  }
+  .app-map path.is-has {
+    fill: $secondaryColor;
+  }
+  .app-map path.is-has:hover,
+  .app-map path.is-eu:hover,
+  .app-map path:focus-visible {
+    fill: #c7c7f5;
+  }
+  .app-map-legend i {
+    background: #2c2c46;
+  }
+}

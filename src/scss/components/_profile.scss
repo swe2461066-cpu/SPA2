@@ -129,7 +129,7 @@
 }
 
 // Харанхуй горимд хуваах зураас, дугуй зургийн дэвсгэр
-@media (prefers-color-scheme: dark) {
+@include dark {
   .app-fields,
   .app-doc {
     border-color: var(--bulma-border);

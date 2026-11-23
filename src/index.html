@@ -10,6 +10,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" />
+    <!-- Миний: хадгалсан цайвар/харанхуй горимыг CSS-ээс өмнө тавьж, ачаалах үед анивчихаас сэргийлнэ (fn/theme.js) -->
+    <script>
+      try {
+        const theme = localStorage.getItem("tetgeleg_theme");
+        if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
     <link rel="stylesheet" href="./css/main.css" />
     <script defer src="./js/fontawesomeall.min.js"></script>
     <title>Тэтгэлэг</title>
@@ -20,40 +27,8 @@
     <main>
       <div id="app"></div>
     </main>
-    <!-- Бүх хуудсанд харагдах доод хэсэг -->
-    <footer class="app-footer">
-      <div class="container app-footer-grid">
-        <a class="app-footer-brand" href="#/home">
-          <img src="./img/icon/logo.svg" alt="" width="52" height="58" />
-          <span><strong>Тэтгэлэг хайх</strong><small>Гадаадад суралцах портал</small></span>
-        </a>
-        <div>
-          <p class="app-footer-title">Цэс</p>
-          <nav class="app-footer-links is-two">
-            <a href="#/home">Нүүр</a>
-            <a href="#/scholarships">Тэтгэлгүүд</a>
-            <a href="#/eligibility">Тэнцэх эсэх</a>
-            <a href="#/contact">Зөвлөгөө авах</a>
-            <a href="#/register">Бүртгүүлэх</a>
-            <a href="#/profile">Миний профайл</a>
-          </nav>
-        </div>
-        <div>
-          <p class="app-footer-title">Бүс нутаг</p>
-          <nav class="app-footer-links">
-            <a href="#/scholarships?region=asia">Ази</a>
-            <a href="#/scholarships?region=europe">Европ</a>
-            <a href="#/scholarships?region=americas">Америк, Австрали</a>
-            <a href="#/scholarships?region=mongolia">Монгол Улс</a>
-          </nav>
-        </div>
-        <div>
-          <p class="app-footer-title">Анхааруулга</p>
-          <p class="app-footer-note">Тэтгэлгийн хугацаа, нөхцөл жил бүр өөрчлөгддөг тул албан сайтаас нь заавал шалгана уу.</p>
-        </div>
-      </div>
-      <p class="app-footer-copy">© 2026 Тэтгэлэг хайх · CON354 сургалтын төсөл · Зураг: Unsplash</p>
-    </footer>
+    <!-- Бүх хуудсанд харагдах доод хэсэг. 6-р ажлаас (2.13) components/footer.js зурна. -->
+    <footer class="app-footer" id="footer"></footer>
     <script type="module" src="./js/app.js"></script>
   </body>
 </html>

@@ -1,0 +1,90 @@
+{
+  "_note": "Бүх дүн ам.доллараар (USD), ОЙРОЛЦОО. Тэтгэмж, үнэ жил, хот, ханшаас хамаарч өөрчлөгдөнө.",
+  "items": [
+    { "id": "rent", "mn": "Байр", "en": "Housing", "icon": "fa-house" },
+    { "id": "food", "mn": "Хоол хүнс", "en": "Food", "icon": "fa-utensils" },
+    { "id": "transport", "mn": "Тээвэр", "en": "Transport", "icon": "fa-bus" },
+    { "id": "insurance", "mn": "Эрүүл мэндийн даатгал", "en": "Health insurance", "icon": "fa-briefcase-medical" },
+    { "id": "phone", "mn": "Утас, интернэт", "en": "Phone & internet", "icon": "fa-mobile-screen" },
+    { "id": "other", "mn": "Ном, хувийн хэрэгцээ", "en": "Books & personal", "icon": "fa-bag-shopping" }
+  ],
+  "oneTime": [
+    { "id": "flight", "mn": "Онгоцны тийз (нэг тал)", "en": "Air ticket (one way)", "icon": "fa-plane" },
+    { "id": "visa", "mn": "Виз, бичиг баримт", "en": "Visa & documents", "icon": "fa-passport" },
+    { "id": "settle", "mn": "Эхний сарын суурьшил (барьцаа, эд зүйл)", "en": "Settling in (deposit, essentials)", "icon": "fa-box-open" }
+  ],
+  "scholarships": {
+    "mext": {
+      "city": { "mn": "Токио", "en": "Tokyo" }, "stipend": 780, "months": 24,
+      "living": { "rent": 400, "food": 300, "transport": 70, "insurance": 15, "phone": 30, "other": 80 },
+      "covered": ["flight"],
+      "oneTime": { "flight": 450, "visa": 30, "settle": 500 }
+    },
+    "gks": {
+      "city": { "mn": "Сөүл", "en": "Seoul" }, "stipend": 730, "months": 24,
+      "living": { "rent": 350, "food": 300, "transport": 50, "insurance": 0, "phone": 30, "other": 80 },
+      "covered": ["flight", "insurance"],
+      "oneTime": { "flight": 350, "visa": 60, "settle": 400 }
+    },
+    "csc": {
+      "city": { "mn": "Бээжин", "en": "Beijing" }, "stipend": 415, "months": 24,
+      "living": { "rent": 0, "food": 200, "transport": 30, "insurance": 0, "phone": 15, "other": 60 },
+      "covered": ["rent", "insurance"],
+      "oneTime": { "flight": 300, "visa": 40, "settle": 200 }
+    },
+    "turkiye": {
+      "city": { "mn": "Анкара", "en": "Ankara" }, "stipend": 140, "months": 24,
+      "living": { "rent": 0, "food": 150, "transport": 30, "insurance": 0, "phone": 10, "other": 50 },
+      "covered": ["rent", "insurance", "flight"],
+      "oneTime": { "flight": 600, "visa": 60, "settle": 200 }
+    },
+    "chevening": {
+      "city": { "mn": "Лондон", "en": "London" }, "stipend": 1800, "months": 12,
+      "living": { "rent": 1100, "food": 350, "transport": 150, "insurance": 0, "phone": 25, "other": 150 },
+      "covered": ["flight", "visa", "insurance"],
+      "oneTime": { "flight": 900, "visa": 700, "settle": 800 }
+    },
+    "daad": {
+      "city": { "mn": "Мюнхен", "en": "Munich" }, "stipend": 1080, "months": 24,
+      "living": { "rent": 500, "food": 280, "transport": 60, "insurance": 130, "phone": 20, "other": 100 },
+      "covered": ["flight"],
+      "oneTime": { "flight": 800, "visa": 90, "settle": 700 }
+    },
+    "hungaricum": {
+      "city": { "mn": "Будапешт", "en": "Budapest" }, "stipend": 120, "months": 24,
+      "living": { "rent": 0, "food": 220, "transport": 25, "insurance": 0, "phone": 15, "other": 60 },
+      "covered": ["rent", "insurance"],
+      "oneTime": { "flight": 800, "visa": 90, "settle": 300 }
+    },
+    "erasmus": {
+      "city": { "mn": "Европын хотууд", "en": "European cities" }, "stipend": 1520, "months": 24,
+      "living": { "rent": 600, "food": 300, "transport": 60, "insurance": 0, "phone": 20, "other": 120 },
+      "covered": ["flight", "insurance"],
+      "oneTime": { "flight": 800, "visa": 90, "settle": 700 }
+    },
+    "russia": {
+      "city": { "mn": "Москва", "en": "Moscow" }, "stipend": 40, "months": 24,
+      "living": { "rent": 40, "food": 200, "transport": 20, "insurance": 70, "phone": 10, "other": 50 },
+      "covered": [],
+      "oneTime": { "flight": 450, "visa": 50, "settle": 200 }
+    },
+    "fulbright": {
+      "city": { "mn": "АНУ-ын их сургуулийн хот", "en": "U.S. college town" }, "stipend": 2000, "months": 24,
+      "living": { "rent": 1100, "food": 400, "transport": 80, "insurance": 0, "phone": 40, "other": 150 },
+      "covered": ["flight", "insurance", "visa"],
+      "oneTime": { "flight": 1200, "visa": 185, "settle": 900 }
+    },
+    "australia": {
+      "city": { "mn": "Канберра", "en": "Canberra" }, "stipend": 1850, "months": 24,
+      "living": { "rent": 1200, "food": 400, "transport": 100, "insurance": 0, "phone": 30, "other": 150 },
+      "covered": ["flight", "insurance", "visa"],
+      "oneTime": { "flight": 1100, "visa": 0, "settle": 900 }
+    },
+    "elf": {
+      "city": { "mn": "Гадаадын их сургууль", "en": "University abroad" }, "stipend": 0, "months": 24,
+      "living": { "rent": 700, "food": 350, "transport": 80, "insurance": 80, "phone": 30, "other": 120 },
+      "covered": [],
+      "oneTime": { "flight": 900, "visa": 150, "settle": 700 }
+    }
+  }
+}

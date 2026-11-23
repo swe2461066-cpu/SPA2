@@ -1,5 +1,4 @@
-import { REGIONS } from "../data/scholarships.js";
-import { REQUIREMENTS } from "../data/requirements.js";
+import { getAllScholarships } from "../services/scholarshipService.js";
 
 // Миний: тэнцэх эсэх тооцоолуурын логик (DOM-гүй цэвэр функцууд).
 
@@ -66,12 +65,10 @@ const ORDER = { match: 0, close: 1, unknown: 2, no: 3 };
 // Бүх тэтгэлгийг шалгаж, тэнцэх магадлалаар эрэмбэлнэ.
 // onlyMine = true бол сонгосон түвшин, мэргэжилд хамаарахгүй тэтгэлгийг хасна.
 export function evaluateAll(input, onlyMine = true) {
-  return REGIONS.flatMap((region) =>
-    region.scholarships.map((s) => ({ ...s, region, req: REQUIREMENTS[s.name] }))
-  )
-    .filter((s) => s.req)
+  return getAllScholarships()
+    .filter((s) => s.requirements)
     .filter((s) => !onlyMine || !input.degree || s.levels.includes(input.degree))
     .filter((s) => !onlyMine || !input.field || s.fields === "all" || s.fields.includes(input.field))
-    .map((s) => ({ ...s, ...checkScholarship(s.req, input) }))
+    .map((s) => ({ ...s, ...checkScholarship(s.requirements, input) }))
     .sort((a, b) => ORDER[a.status] - ORDER[b.status]);
 }

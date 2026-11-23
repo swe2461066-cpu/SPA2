@@ -86,7 +86,7 @@
     margin-right: 0.25rem;
   }
 }
-@media (prefers-color-scheme: dark) {
+@include dark {
   .app-badge.is-full {
     color: #6ee7b7;
     background: rgba(16, 185, 129, 0.15);
@@ -94,5 +94,26 @@
   .app-badge.is-partial {
     color: #fcd34d;
     background: rgba(245, 158, 11, 0.15);
+  }
+}
+
+// Миний: мэргэжлийн tag цайвар саарал дэвсгэр дээр цайвар бичигтэй, харагдахгүй байсан тул
+// хар хөх дэвсгэр, цагаан бичигтэй болгов. Шүүлтүүрт сонгосон мэргэжил ягаан-хөх өнгөтэй.
+.tag.app-major-tag {
+  background: $primaryColor;
+  color: #fff;
+  font-weight: 500;
+  &.is-selected {
+    background: $secondaryColor;
+  }
+}
+@include dark {
+  .tag.app-major-tag {
+    background: #33335c;
+    color: #ececf8;
+    &.is-selected {
+      background: $secondaryColor;
+      color: #fff;
+    }
   }
 }

@@ -1,0 +1,176 @@
+// pages/calculatorPage.js (2.11)
+.app-calc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  border-left: 5px solid $secondaryColor;
+}
+.app-calc-covers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+.app-calc-stipend {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  span {
+    font-size: 0.8rem;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  strong {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+}
+.app-calc-table {
+  td {
+    vertical-align: middle;
+  }
+  td:first-child {
+    white-space: nowrap;
+  }
+}
+.app-calc-input {
+  max-width: 7.5rem;
+}
+.app-calc-custom {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.app-calc-share {
+  min-width: 8rem;
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  white-space: nowrap;
+  span {
+    vertical-align: middle;
+  }
+}
+.app-calc-bar {
+  display: inline-block;
+  width: 4.5rem;
+  height: 0.45rem;
+  margin-right: 0.4rem;
+  background: var(--hover-bg);
+  i {
+    display: block;
+    height: 100%;
+    background: $secondaryColor;
+  }
+}
+.app-calc-add {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border);
+}
+.app-calc-summary {
+  position: sticky;
+  top: calc(var(--navbar-h) + 1rem);
+}
+.app-calc-totals {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+  div {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  dd {
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .is-plus dd {
+    color: #047857;
+  }
+  .is-minus dd {
+    color: #b91c1c;
+  }
+}
+.app-calc-verdict {
+  font-weight: 600;
+  font-size: 0.9rem;
+  &.is-success {
+    color: #047857;
+  }
+  &.is-warning {
+    color: #a16207;
+  }
+  &.is-danger {
+    color: #b91c1c;
+  }
+}
+.app-calc-need {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: $primaryColor;
+  color: #fff;
+  span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #c7c7f5;
+  }
+  strong {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  small {
+    color: rgba(255, 255, 255, 0.75);
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .app-calc-summary {
+    position: static;
+  }
+}
+@media screen and (max-width: 560px) {
+  .app-calc-stipend {
+    text-align: left;
+  }
+  // Утсан дээр "Тэтгэмжийн хувь" баганыг нууж, нэр, дүн хоёрт зай өгнө (хувь нь доорх дүгнэлтэд бий)
+  .app-calc-table {
+    td:first-child {
+      white-space: normal;
+    }
+    th:nth-child(3),
+    .app-calc-share {
+      display: none;
+    }
+  }
+  .app-calc-input {
+    min-width: 5.5rem;
+  }
+}
+@include dark {
+  .app-calc-totals .is-plus dd,
+  .app-calc-verdict.is-success {
+    color: #34d399;
+  }
+  .app-calc-totals .is-minus dd,
+  .app-calc-verdict.is-danger {
+    color: #f87171;
+  }
+  .app-calc-verdict.is-warning {
+    color: #fbbf24;
+  }
+  .app-calc-need {
+    background: #0b0b18;
+  }
+}

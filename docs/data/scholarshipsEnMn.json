@@ -1,0 +1,806 @@
+{
+  "regions": [
+    {
+      "id": "asia",
+      "name": {
+        "mn": "Ази",
+        "en": "Asia"
+      },
+      "icon": "fa-torii-gate",
+      "color": "is-danger",
+      "scholarships": [
+        {
+          "id": "mext",
+          "name": {
+            "mn": "MEXT тэтгэлэг",
+            "en": "MEXT Scholarship"
+          },
+          "country": {
+            "mn": "Япон",
+            "en": "Japan"
+          },
+          "provider": {
+            "mn": "Японы Боловсрол, соёл, спорт, шинжлэх ухаан, технологийн яам",
+            "en": "Japan's Ministry of Education, Culture, Sports, Science and Technology"
+          },
+          "levels": [
+            "bachelor",
+            "master",
+            "phd"
+          ],
+          "coverage": "full",
+          "fields": "all",
+          "deadline": {
+            "mn": "Ихэвчлэн 4–5 сар (ЭСЯ-ны шалгаруулалт)",
+            "en": "Usually Apr–May (embassy selection)"
+          },
+          "text": {
+            "mn": "Сургалтын төлбөр, сарын тэтгэмж, онгоцны тийз. Эхний жилд япон хэлний бэлтгэл хамрагдана.",
+            "en": "Tuition, monthly stipend and air ticket. Includes Japanese language preparation in the first year."
+          },
+          "url": "https://www.studyinjapan.go.jp/en/",
+          "requirements": {
+            "gpa": 80,
+            "ielts": 6,
+            "topik": null,
+            "note": {
+              "mn": "Япон хэлээр суралцах бол JLPT N2+ давуу тал болно.",
+              "en": "JLPT N2+ is an advantage for study in Japanese."
+            }
+          },
+          "universities": [
+            {
+              "mn": "Токиогийн их сургууль",
+              "en": "University of Tokyo"
+            },
+            {
+              "mn": "Киотогийн их сургууль",
+              "en": "Kyoto University"
+            },
+            {
+              "mn": "Осакагийн их сургууль",
+              "en": "Osaka University"
+            },
+            {
+              "mn": "Тохокугийн их сургууль",
+              "en": "Tohoku University"
+            }
+          ],
+          "mapIds": [
+            "392"
+          ],
+          "keywords": "japan nihon tokyo kyoto osaka tohoku токио киото осака"
+        },
+        {
+          "id": "gks",
+          "name": {
+            "mn": "Global Korea Scholarship (GKS)",
+            "en": "Global Korea Scholarship (GKS)"
+          },
+          "country": {
+            "mn": "Өмнөд Солонгос",
+            "en": "South Korea"
+          },
+          "provider": {
+            "mn": "Солонгосын Засгийн газар (NIIED)",
+            "en": "Government of Korea (NIIED)"
+          },
+          "levels": [
+            "bachelor",
+            "master",
+            "phd"
+          ],
+          "coverage": "full",
+          "fields": "all",
+          "deadline": {
+            "mn": "Ихэвчлэн 2–3 сар (магистр), 9–10 сар (бакалавр)",
+            "en": "Usually Feb–Mar (master), Sep–Oct (bachelor)"
+          },
+          "text": {
+            "mn": "Сургалтын төлбөр, сарын тэтгэмж, 1 жилийн солонгос хэлний сургалт, онгоцны тийз.",
+            "en": "Tuition, monthly stipend, one year of Korean language training and air ticket."
+          },
+          "url": "https://www.studyinkorea.go.kr",
+          "requirements": {
+            "gpa": 80,
+            "ielts": 5.5,
+            "topik": 3,
+            "note": {
+              "mn": "TOPIK 3+ эсвэл англи хэлний оноо нэмэлт оноо өгнө.",
+              "en": "TOPIK 3+ or an English score earns extra points."
+            }
+          },
+          "universities": [
+            {
+              "mn": "Сөүлийн үндэсний их сургууль",
+              "en": "Seoul National University"
+            },
+            {
+              "mn": "KAIST",
+              "en": "KAIST"
+            },
+            {
+              "mn": "Ёнсэ их сургууль",
+              "en": "Yonsei University"
+            },
+            {
+              "mn": "Корёо их сургууль",
+              "en": "Korea University"
+            }
+          ],
+          "mapIds": [
+            "410"
+          ],
+          "keywords": "korea south korea seoul snu kaist yonsei korea university сөүл кайст"
+        },
+        {
+          "id": "csc",
+          "name": {
+            "mn": "Хятадын Засгийн газрын тэтгэлэг (CSC)",
+            "en": "Chinese Government Scholarship (CSC)"
+          },
+          "country": {
+            "mn": "Хятад",
+            "en": "China"
+          },
+          "provider": {
+            "mn": "China Scholarship Council",
+            "en": "China Scholarship Council"
+          },
+          "levels": [
+            "bachelor",
+            "master",
+            "phd"
+          ],
+          "coverage": "full",
+          "fields": "all",
+          "deadline": {
+            "mn": "Ихэвчлэн 1–4 сар",
+            "en": "Usually Jan–Apr"
+          },
+          "text": {
+            "mn": "Сургалтын төлбөр, дотуур байр, сарын тэтгэмж, эрүүл мэндийн даатгал.",
+            "en": "Tuition, dormitory, monthly stipend and health insurance."
+          },
+          "url": "https://www.campuschina.org",
+          "requirements": {
+            "gpa": 70,
+            "ielts": 6,
+            "topik": null,
+            "note": {
+              "mn": "Хятад хэлээр суралцах бол HSK 4+ шаардана.",
+              "en": "HSK 4+ is required for study in Chinese."
+            }
+          },
+          "universities": [
+            {
+              "mn": "Цинхуагийн их сургууль",
+              "en": "Tsinghua University"
+            },
+            {
+              "mn": "Бээжингийн их сургууль",
+              "en": "Peking University"
+            },
+            {
+              "mn": "Жэжянгийн их сургууль",
+              "en": "Zhejiang University"
+            },
+            {
+              "mn": "Фүданы их сургууль",
+              "en": "Fudan University"
+            }
+          ],
+          "mapIds": [
+            "156"
+          ],
+          "keywords": "china beijing tsinghua peking pku zhejiang fudan shanghai бээжин шанхай"
+        },
+        {
+          "id": "turkiye",
+          "name": {
+            "mn": "Türkiye Bursları",
+            "en": "Türkiye Bursları"
+          },
+          "country": {
+            "mn": "Турк",
+            "en": "Türkiye"
+          },
+          "provider": {
+            "mn": "Туркийн Засгийн газар",
+            "en": "Government of Türkiye"
+          },
+          "levels": [
+            "bachelor",
+            "master",
+            "phd"
+          ],
+          "coverage": "full",
+          "fields": "all",
+          "deadline": {
+            "mn": "Ихэвчлэн 1–2 сар",
+            "en": "Usually Jan–Feb"
+          },
+          "text": {
+            "mn": "Сургалтын төлбөр, сарын тэтгэмж, байр, 1 жилийн турк хэлний бэлтгэл.",
+            "en": "Tuition, monthly stipend, accommodation and one year of Turkish language preparation."
+          },
+          "url": "https://www.turkiyeburslari.gov.tr",
+          "requirements": {
+            "gpa": 75,
+            "ielts": null,
+            "topik": null,
+            "note": {
+              "mn": "Хэлний оноо шаардахгүй — 1 жил турк хэлний бэлтгэл олгоно.",
+              "en": "No language score required — one year of Turkish preparation is provided."
+            }
+          },
+          "universities": [
+            {
+              "mn": "Истанбулын их сургууль",
+              "en": "Istanbul University"
+            },
+            {
+              "mn": "Ойрх Дорнодын техникийн их сургууль (METU)",
+              "en": "Middle East Technical University (METU)"
+            },
+            {
+              "mn": "Богазичи их сургууль",
+              "en": "Boğaziçi University"
+            },
+            {
+              "mn": "Анкарагийн их сургууль",
+              "en": "Ankara University"
+            }
+          ],
+          "mapIds": [
+            "792"
+          ],
+          "keywords": "turkey turkiye istanbul ankara metu bogazici истанбул анкара"
+        }
+      ]
+    },
+    {
+      "id": "europe",
+      "name": {
+        "mn": "Европ",
+        "en": "Europe"
+      },
+      "icon": "fa-landmark",
+      "color": "is-info",
+      "scholarships": [
+        {
+          "id": "chevening",
+          "name": {
+            "mn": "Chevening",
+            "en": "Chevening"
+          },
+          "country": {
+            "mn": "Их Британи",
+            "en": "United Kingdom"
+          },
+          "provider": {
+            "mn": "Их Британийн Гадаад хэргийн яам (FCDO)",
+            "en": "UK Foreign, Commonwealth & Development Office (FCDO)"
+          },
+          "levels": [
+            "master"
+          ],
+          "coverage": "full",
+          "fields": "all",
+          "deadline": {
+            "mn": "Ихэвчлэн 8–11 сар",
+            "en": "Usually Aug–Nov"
+          },
+          "text": {
+            "mn": "1 жилийн магистр. Дор хаяж 2 жилийн ажлын туршлага шаардлагатай. Манлайлагч болох чадварыг үнэлдэг.",
+            "en": "One-year master's. At least two years of work experience required. Leadership potential is assessed."
+          },
+          "url": "https://www.chevening.org",
+          "requirements": {
+            "gpa": 75,
+            "ielts": 6.5,
+            "topik": null,
+            "note": {
+              "mn": "Магистрт 2+ жилийн ажлын туршлага шаардана.",
+              "en": "Two or more years of work experience required."
+            }
+          },
+          "universities": [
+            {
+              "mn": "Оксфордын их сургууль",
+              "en": "University of Oxford"
+            },
+            {
+              "mn": "University College London",
+              "en": "University College London"
+            },
+            {
+              "mn": "Эдинбургийн их сургууль",
+              "en": "University of Edinburgh"
+            },
+            {
+              "mn": "Манчестерийн их сургууль",
+              "en": "University of Manchester"
+            }
+          ],
+          "mapIds": [
+            "826"
+          ],
+          "keywords": "uk united kingdom england britain london oxford ucl edinburgh manchester англи лондон"
+        },
+        {
+          "id": "daad",
+          "name": {
+            "mn": "DAAD тэтгэлэг",
+            "en": "DAAD Scholarship"
+          },
+          "country": {
+            "mn": "Герман",
+            "en": "Germany"
+          },
+          "provider": {
+            "mn": "Германы академик солилцооны алба",
+            "en": "German Academic Exchange Service"
+          },
+          "levels": [
+            "master",
+            "phd"
+          ],
+          "coverage": "full",
+          "fields": [
+            "engineering",
+            "it",
+            "science",
+            "business",
+            "agriculture",
+            "medicine",
+            "social"
+          ],
+          "deadline": {
+            "mn": "Хөтөлбөрөөс хамаарна (ихэвчлэн 8–10 сар)",
+            "en": "Depends on programme (usually Aug–Oct)"
+          },
+          "text": {
+            "mn": "Магистр, докторын болон судалгааны олон төрлийн хөтөлбөр. Сарын тэтгэмж, даатгал, аяллын зардал. Ихэнх хөтөлбөр нь инженер, байгалийн ухаан, хөгжлийн чиглэлд.",
+            "en": "Many master's, doctoral and research programmes. Monthly stipend, insurance and travel allowance. Most programmes are in engineering, science and development."
+          },
+          "url": "https://www.daad.de/en/",
+          "requirements": {
+            "gpa": 75,
+            "ielts": 6.5,
+            "topik": null,
+            "note": {
+              "mn": "Герман хэлээр суралцах бол TestDaF 4 / DSH-2.",
+              "en": "TestDaF 4 / DSH-2 for study in German."
+            }
+          },
+          "universities": [
+            {
+              "mn": "Мюнхений техникийн их сургууль (TUM)",
+              "en": "Technical University of Munich (TUM)"
+            },
+            {
+              "mn": "Хайдельбергийн их сургууль",
+              "en": "Heidelberg University"
+            },
+            {
+              "mn": "RWTH Аахен",
+              "en": "RWTH Aachen University"
+            },
+            {
+              "mn": "Берлиний Гумбольдтын их сургууль",
+              "en": "Humboldt University of Berlin"
+            }
+          ],
+          "mapIds": [
+            "276"
+          ],
+          "keywords": "germany deutschland munich tum heidelberg rwth aachen berlin humboldt мюнхен берлин"
+        },
+        {
+          "id": "hungaricum",
+          "name": {
+            "mn": "Stipendium Hungaricum",
+            "en": "Stipendium Hungaricum"
+          },
+          "country": {
+            "mn": "Унгар",
+            "en": "Hungary"
+          },
+          "provider": {
+            "mn": "Унгарын Засгийн газар (Tempus Public Foundation)",
+            "en": "Government of Hungary (Tempus Public Foundation)"
+          },
+          "levels": [
+            "bachelor",
+            "master",
+            "phd"
+          ],
+          "coverage": "full",
+          "fields": "all",
+          "deadline": {
+            "mn": "Ихэвчлэн 11–1 сар",
+            "en": "Usually Nov–Jan"
+          },
+          "text": {
+            "mn": "Сургалтын төлбөргүй, сарын тэтгэмж, байр эсвэл байрны хөлс, эрүүл мэндийн даатгал.",
+            "en": "Tuition-free, monthly stipend, accommodation or housing allowance and health insurance."
+          },
+          "url": "https://stipendiumhungaricum.hu",
+          "requirements": {
+            "gpa": 70,
+            "ielts": 6,
+            "topik": null,
+            "note": {
+              "mn": "Унгар хэлээр суралцах бол бэлтгэл жил байдаг.",
+              "en": "A preparatory year is offered for study in Hungarian."
+            }
+          },
+          "universities": [
+            {
+              "mn": "ELTE (Этвёш Лорандын их сургууль)",
+              "en": "ELTE (Eötvös Loránd University)"
+            },
+            {
+              "mn": "Будапештийн технологи, эдийн засгийн их сургууль",
+              "en": "Budapest University of Technology and Economics"
+            },
+            {
+              "mn": "Дебрецений их сургууль",
+              "en": "University of Debrecen"
+            },
+            {
+              "mn": "Сегедийн их сургууль",
+              "en": "University of Szeged"
+            }
+          ],
+          "mapIds": [
+            "348"
+          ],
+          "keywords": "hungary budapest elte bme debrecen szeged будапешт"
+        },
+        {
+          "id": "erasmus",
+          "name": {
+            "mn": "Erasmus Mundus",
+            "en": "Erasmus Mundus"
+          },
+          "country": {
+            "mn": "Европын холбоо",
+            "en": "European Union"
+          },
+          "provider": {
+            "mn": "Европын Комисс",
+            "en": "European Commission"
+          },
+          "levels": [
+            "master"
+          ],
+          "coverage": "full",
+          "fields": "all",
+          "deadline": {
+            "mn": "Ихэвчлэн 10–1 сар (хөтөлбөр бүрт өөр)",
+            "en": "Usually Oct–Jan (varies by programme)"
+          },
+          "text": {
+            "mn": "2 ба түүнээс дээш Европ улсад суралцах хамтарсан магистрын хөтөлбөр.",
+            "en": "Joint master's programme studied in two or more European countries."
+          },
+          "url": "https://erasmus-plus.ec.europa.eu",
+          "requirements": {
+            "gpa": 75,
+            "ielts": 6.5,
+            "topik": null,
+            "note": {
+              "mn": "Хөтөлбөр бүр өөр өөр шаардлагатай — 2+ улсын сургуульд суралцана.",
+              "en": "Each programme has its own requirements — study in 2+ countries."
+            }
+          },
+          "universities": [
+            {
+              "mn": "Европын хамтарсан магистрын хөтөлбөрүүд (консорциум)",
+              "en": "Joint European master's programmes (consortia)"
+            }
+          ],
+          "mapIds": [
+            "040",
+            "056",
+            "100",
+            "191",
+            "196",
+            "203",
+            "208",
+            "233",
+            "246",
+            "250",
+            "276",
+            "300",
+            "348",
+            "372",
+            "380",
+            "428",
+            "440",
+            "442",
+            "470",
+            "528",
+            "616",
+            "620",
+            "642",
+            "703",
+            "705",
+            "724",
+            "752"
+          ],
+          "keywords": "europe eu erasmus"
+        },
+        {
+          "id": "russia",
+          "name": {
+            "mn": "ОХУ-ын Засгийн газрын квот",
+            "en": "Russian Government Quota"
+          },
+          "country": {
+            "mn": "Орос",
+            "en": "Russia"
+          },
+          "provider": {
+            "mn": "ОХУ-ын Шинжлэх ухаан, дээд боловсролын яам",
+            "en": "Russian Ministry of Science and Higher Education"
+          },
+          "levels": [
+            "bachelor",
+            "master",
+            "phd"
+          ],
+          "coverage": "partial",
+          "fields": "all",
+          "deadline": {
+            "mn": "Ихэвчлэн 11–2 сар",
+            "en": "Usually Nov–Feb"
+          },
+          "text": {
+            "mn": "Сургалтын төлбөргүй, бага хэмжээний тэтгэмж. Байр, амьжиргааны зардлыг өөрөө хариуцна.",
+            "en": "Tuition-free with a small stipend. Accommodation and living costs are paid by the student."
+          },
+          "url": "https://education-in-russia.com",
+          "requirements": {
+            "gpa": 70,
+            "ielts": null,
+            "topik": null,
+            "note": {
+              "mn": "Хэлний оноо шаардахгүй — орос хэлний бэлтгэл жил олгоно.",
+              "en": "No language score required — a Russian preparatory year is provided."
+            }
+          },
+          "universities": [
+            {
+              "mn": "Москвагийн улсын их сургууль",
+              "en": "Lomonosov Moscow State University"
+            },
+            {
+              "mn": "Санкт-Петербургийн улсын их сургууль",
+              "en": "Saint Petersburg State University"
+            },
+            {
+              "mn": "Эдийн засгийн дээд сургууль (HSE)",
+              "en": "Higher School of Economics (HSE)"
+            },
+            {
+              "mn": "Томскийн политехникийн их сургууль",
+              "en": "Tomsk Polytechnic University"
+            }
+          ],
+          "mapIds": [
+            "643"
+          ],
+          "keywords": "russia moscow msu saint petersburg spbu hse tomsk москва"
+        }
+      ]
+    },
+    {
+      "id": "americas",
+      "name": {
+        "mn": "Америк, Австрали",
+        "en": "Americas & Australia"
+      },
+      "icon": "fa-earth-americas",
+      "color": "is-success",
+      "scholarships": [
+        {
+          "id": "fulbright",
+          "name": {
+            "mn": "Fulbright",
+            "en": "Fulbright"
+          },
+          "country": {
+            "mn": "АНУ",
+            "en": "United States"
+          },
+          "provider": {
+            "mn": "АНУ-ын Төрийн департамент",
+            "en": "U.S. Department of State"
+          },
+          "levels": [
+            "master",
+            "phd"
+          ],
+          "coverage": "full",
+          "fields": [
+            "it",
+            "engineering",
+            "science",
+            "business",
+            "social",
+            "education",
+            "humanities",
+            "agriculture"
+          ],
+          "deadline": {
+            "mn": "Ихэвчлэн 2–5 сар (Элчин сайдын яамаар)",
+            "en": "Usually Feb–May (through the embassy)"
+          },
+          "text": {
+            "mn": "АНУ-ын их сургуульд магистр, докторт суралцах. Сургалтын төлбөр, тэтгэмж, онгоцны тийз. Эмнэлгийн клиник сургалт хамаарахгүй.",
+            "en": "Master's or doctoral study at a U.S. university. Tuition, stipend and air ticket. Clinical medical training is not covered."
+          },
+          "url": "https://foreign.fulbrightonline.org",
+          "requirements": {
+            "gpa": 80,
+            "ielts": 6.5,
+            "topik": null,
+            "note": {
+              "mn": "TOEFL iBT 80+ мөн хүлээн зөвшөөрнө.",
+              "en": "TOEFL iBT 80+ is also accepted."
+            }
+          },
+          "universities": [
+            {
+              "mn": "АНУ-ын их сургуулиуд (Fulbright байршуулна)",
+              "en": "U.S. universities (placed by Fulbright)"
+            },
+            {
+              "mn": "Жишээ: Иллинойсын их сургууль",
+              "en": "e.g. University of Illinois"
+            },
+            {
+              "mn": "Аризонагийн улсын их сургууль",
+              "en": "Arizona State University"
+            }
+          ],
+          "mapIds": [
+            "840"
+          ],
+          "keywords": "usa united states america illinois arizona ам"
+        },
+        {
+          "id": "australia",
+          "name": {
+            "mn": "Australia Awards",
+            "en": "Australia Awards"
+          },
+          "country": {
+            "mn": "Австрали",
+            "en": "Australia"
+          },
+          "provider": {
+            "mn": "Австралийн Гадаад хэрэг, худалдааны яам",
+            "en": "Australian Department of Foreign Affairs and Trade"
+          },
+          "levels": [
+            "master"
+          ],
+          "coverage": "full",
+          "fields": [
+            "education",
+            "medicine",
+            "social",
+            "agriculture",
+            "engineering",
+            "business"
+          ],
+          "deadline": {
+            "mn": "Ихэвчлэн 2–4 сар",
+            "en": "Usually Feb–Apr"
+          },
+          "text": {
+            "mn": "Хөгжлийн тэргүүлэх чиглэлийн (боловсрол, эрүүл мэнд, засаглал, хөдөө аж ахуй) магистрын хөтөлбөр. Сургалтын төлбөр, амьжиргааны тэтгэмж, онгоцны тийз.",
+            "en": "Master's programmes in development priority areas (education, health, governance, agriculture). Tuition, living allowance and air ticket."
+          },
+          "url": "https://www.dfat.gov.au/people-to-people/australia-awards",
+          "requirements": {
+            "gpa": 70,
+            "ielts": 6.5,
+            "topik": null,
+            "note": {
+              "mn": "IELTS хэсэг бүр 6.0-аас доошгүй байх шаардлагатай.",
+              "en": "Each IELTS band must be at least 6.0."
+            }
+          },
+          "universities": [
+            {
+              "mn": "Австралийн үндэсний их сургууль (ANU)",
+              "en": "Australian National University (ANU)"
+            },
+            {
+              "mn": "Мельбурны их сургууль",
+              "en": "University of Melbourne"
+            },
+            {
+              "mn": "Сиднейн их сургууль",
+              "en": "University of Sydney"
+            },
+            {
+              "mn": "UNSW Сидней",
+              "en": "UNSW Sydney"
+            }
+          ],
+          "mapIds": [
+            "036"
+          ],
+          "keywords": "australia anu melbourne sydney unsw канберра"
+        }
+      ]
+    },
+    {
+      "id": "mongolia",
+      "name": {
+        "mn": "Монгол Улс",
+        "en": "Mongolia"
+      },
+      "icon": "fa-flag",
+      "color": "is-warning",
+      "scholarships": [
+        {
+          "id": "elf",
+          "name": {
+            "mn": "Боловсролын зээлийн сангийн тэтгэлэг",
+            "en": "Education Loan Fund Scholarship"
+          },
+          "country": {
+            "mn": "Монгол",
+            "en": "Mongolia"
+          },
+          "provider": {
+            "mn": "Боловсролын зээлийн сан",
+            "en": "Education Loan Fund of Mongolia"
+          },
+          "levels": [
+            "bachelor",
+            "master",
+            "phd"
+          ],
+          "coverage": "partial",
+          "fields": "all",
+          "deadline": {
+            "mn": "Жил бүр зарлагдана",
+            "en": "Announced every year"
+          },
+          "text": {
+            "mn": "Дотоод, гадаадын их сургуульд суралцах тэтгэлэг, хөнгөлөлттэй зээлийн олон хөтөлбөр.",
+            "en": "Scholarships and soft loans for study at Mongolian and foreign universities."
+          },
+          "url": "https://www.elf.gov.mn",
+          "requirements": {
+            "gpa": 80,
+            "ielts": 6.5,
+            "topik": null,
+            "note": {
+              "mn": "Дэлхийн шилдэг их сургуульд элссэн байх шаардлагатай.",
+              "en": "Admission to a top-ranked world university is required."
+            }
+          },
+          "universities": [
+            {
+              "mn": "Дэлхийн жагсаалтын эхний 100 доторх их сургуулиуд",
+              "en": "Universities in the world top 100"
+            }
+          ],
+          "mapIds": [
+            "496"
+          ],
+          "keywords": "mongolia монгол top 100"
+        }
+      ]
+    }
+  ]
+}

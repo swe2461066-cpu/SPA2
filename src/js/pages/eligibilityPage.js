@@ -1,6 +1,6 @@
 import { renderPageLayout } from "../layouts/pageLayout.js";
 import { renderNotification } from "../layouts/notificationLayout.js";
-import { LEVELS, FIELDS } from "../data/scholarships.js";
+import { LEVELS, FIELDS } from "../data/categories.js";
 import { getUser, updateUser } from "../fn/auth.js";
 import { scoresFromProfile, evaluateAll } from "../fn/eligibility.js";
 
@@ -146,7 +146,7 @@ function renderResult(r) {
   const checks = r.checks
     .map((c) => `<li><i class="fas ${CHECK_ICON[c.state]}"></i> ${c.label}${c.have ? ` <span class="app-elig-have">— таных: ${c.have}</span>` : ""}</li>`)
     .join("");
-  const unis = r.req.universities.map((u) => `<li><i class="fas fa-building-columns"></i> ${u}</li>`).join("");
+  const unis = r.universities.map((u) => `<li><i class="fas fa-building-columns"></i> ${u}</li>`).join("");
   return `
     <article class="box app-elig-card is-${r.status}">
       <div class="app-elig-head">
@@ -160,7 +160,7 @@ function renderResult(r) {
         <div>
           <p class="app-field-label">Шаардлага</p>
           <ul class="app-elig-checks">${checks}</ul>
-          <p class="app-elig-hint">${r.req.note}</p>
+          <p class="app-elig-hint">${r.requirements.note}</p>
         </div>
         <div>
           <p class="app-field-label">${r.status === "no" ? "Сургуулиуд" : "Тохирох сургуулиуд"}</p>

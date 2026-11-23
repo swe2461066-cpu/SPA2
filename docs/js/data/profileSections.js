@@ -1,4 +1,4 @@
-import { LEVELS, FIELDS } from "./scholarships.js";
+import { LEVELS, FIELDS } from "./categories.js";
 
 // Профайлын хэсгүүд ба талбарууд.
 // Хуудас нь энэ тохиргооноос харах (view) болон засах (edit) хэлбэрийг автоматаар үүсгэнэ —

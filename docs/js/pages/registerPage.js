@@ -1,6 +1,6 @@
 import { renderPageLayout } from "../layouts/pageLayout.js";
 import { renderNotification } from "../layouts/notificationLayout.js";
-import { LEVELS, FIELDS } from "../data/scholarships.js";
+import { LEVELS, FIELDS } from "../data/categories.js";
 import { getUser, register } from "../fn/auth.js";
 
 // Бүртгүүлэх хуудас: шалгалттай (validation) форм.

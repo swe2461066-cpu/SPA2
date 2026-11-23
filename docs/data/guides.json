@@ -1,0 +1,92 @@
+[
+  {
+    "id": "motivation-letter",
+    "icon": "fa-pen-nib",
+    "color": "#5c5cdb",
+    "pages": 2,
+    "title": {
+      "mn": "Motivation letter бичих",
+      "en": "Writing a motivation letter"
+    },
+    "text": {
+      "mn": "Бүтэц, эхлэл ба төгсгөл, түгээмэл алдаа, шалгах хуудас.",
+      "en": "Structure, opening and closing, common mistakes, checklist."
+    },
+    "pdf": "pdf/motivation-letter.pdf"
+  },
+  {
+    "id": "recommendation",
+    "icon": "fa-envelope-open-text",
+    "color": "#0f766e",
+    "pages": 1,
+    "title": {
+      "mn": "Зөвлөмжийн захидал авах",
+      "en": "Getting recommendation letters"
+    },
+    "text": {
+      "mn": "Хэнээс, хэзээ, яаж хүсэх; багшид өгөх мэдээлэл.",
+      "en": "Whom, when and how to ask; what to give your referee."
+    },
+    "pdf": "pdf/recommendation.pdf"
+  },
+  {
+    "id": "academic-cv",
+    "icon": "fa-id-card",
+    "color": "#b45309",
+    "pages": 1,
+    "title": {
+      "mn": "Академик CV",
+      "en": "Academic CV"
+    },
+    "text": {
+      "mn": "Хэсгүүдийн дараалал, жишээ мөр, 2 хуудаснаас хэтрүүлэхгүй.",
+      "en": "Section order, sample lines, keep it within two pages."
+    },
+    "pdf": "pdf/academic-cv.pdf"
+  },
+  {
+    "id": "ielts-plan",
+    "icon": "fa-language",
+    "color": "#be123c",
+    "pages": 1,
+    "title": {
+      "mn": "IELTS-д 8 долоо хоногт бэлдэх",
+      "en": "8-week IELTS plan"
+    },
+    "text": {
+      "mn": "Долоо хоног бүрийн төлөвлөгөө, 4 хэсгийн зөвлөгөө.",
+      "en": "Week-by-week plan and tips for all four sections."
+    },
+    "pdf": "pdf/ielts-plan.pdf"
+  },
+  {
+    "id": "visa-checklist",
+    "icon": "fa-passport",
+    "color": "#1d4ed8",
+    "pages": 1,
+    "title": {
+      "mn": "Виз ба явахын өмнөх бэлтгэл",
+      "en": "Visa and pre-departure checklist"
+    },
+    "text": {
+      "mn": "Бичиг баримт, нотариат, орчуулга, ачаа тээш.",
+      "en": "Documents, notarisation, translations, luggage."
+    },
+    "pdf": "pdf/visa-checklist.pdf"
+  },
+  {
+    "id": "interview",
+    "icon": "fa-comments",
+    "color": "#7c3aed",
+    "pages": 2,
+    "title": {
+      "mn": "Ярилцлагад бэлдэх",
+      "en": "Preparing for the interview"
+    },
+    "text": {
+      "mn": "Түгээмэл 12 асуулт, STAR арга, онлайн ярилцлага.",
+      "en": "12 common questions, the STAR method, online interviews."
+    },
+    "pdf": "pdf/interview.pdf"
+  }
+]
