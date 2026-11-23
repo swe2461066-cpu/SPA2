@@ -1,5 +1,3 @@
-import { getRegions } from "../services/scholarshipService.js";
-
 // Миний: тэтгэлгийг сургууль, улс, хот, нэрээр хайх.
 // Хайлтын үг бүр (зайгаар тусгаарласан) тэтгэлгийн мэдээллийн аль нэг хэсэгт байх ёстой.
 // 5-р ажлаас: монгол, англи нэрийн аль алинаар нь хайна (service-ийн searchText).
@@ -33,8 +31,3 @@ export function matchScholarship(s, query) {
   return { universities: (all.length ? all : any).map((u) => u.label) };
 }
 
-// Хайлтын санал болгох жагсаалт: бүх улс + бүх сургууль (одоогийн хэлээр, давхардалгүй)
-export function searchSuggestions() {
-  const list = getRegions().flatMap((r) => r.scholarships.flatMap((s) => [s.country, ...s.universities]));
-  return [...new Set(list)].sort((a, b) => a.localeCompare(b, "mn"));
-}

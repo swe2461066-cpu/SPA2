@@ -6,7 +6,7 @@ import { renderScholarshipCard } from "../components/scholarshipCard.js";
 import { renderScholarshipTable } from "../components/scholarshipTable.js";
 import { openImageModal } from "../components/imageModal.js";
 import { bindSidebar, setSidebarOpen } from "../fn/sidebarEvents.js";
-import { matchScholarship, searchSuggestions } from "../fn/search.js";
+import { matchScholarship } from "../fn/search.js";
 import { escapeHtml } from "../fn/escapeHtml.js";
 import { t } from "../i18n/i18n.js";
 
@@ -53,9 +53,8 @@ export function renderScholarshipsPage() {
     mainContent: `
       <form class="app-search" id="searchForm" role="search">
         <span class="icon"><i class="fas fa-magnifying-glass"></i></span>
-        <input class="input" id="searchInput" type="search" list="searchSuggest" autocomplete="off"
+        <input class="input" id="searchInput" type="search" autocomplete="off"
           placeholder="${t("sch.searchPlaceholder")}" aria-label="${t("header.search")}" value="${escapeHtml(state.q)}" />
-        <datalist id="searchSuggest">${searchSuggestions().map((s) => `<option value="${escapeHtml(s)}"></option>`).join("")}</datalist>
       </form>
       <div class="app-filters mb-4">
         <div class="buttons mb-0" id="levelFilter">${levelButtons}</div>
@@ -110,11 +109,17 @@ export function renderScholarshipsPage() {
   });
 
   // Хайлт: бичих бүрд жагсаалт шинэчлэгдэж, URL-д q хадгалагдана (хуудас дахин зурагдахгүй)
+  // Миний: "change" (Enter, талбараас гарах) ба "search" (× товчоор цэвэрлэх) event-ийг ч сонсоно.
+  // Санал болгох жагсаалт (datalist) хэт урт, саад болж байсан тул хасав.
+  // Утга өөрчлөгдөөгүй бол дахин зурахгүй.
   const input = document.getElementById("searchInput");
-  input.addEventListener("input", () => {
-    state.q = input.value.slice(0, 80);
+  const onSearch = () => {
+    const q = input.value.slice(0, 80);
+    if (q === state.q) return;
+    state.q = q;
     update();
-  });
+  };
+  ["input", "change", "search"].forEach((type) => input.addEventListener(type, onSearch));
   document.getElementById("searchForm").addEventListener("submit", (e) => e.preventDefault());
 
   // Мэргэжлийн сонголт

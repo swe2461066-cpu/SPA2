@@ -107,29 +107,6 @@
   font-weight: 600;
 }
 
-// Миний: хайлтын мөр (🔍 дарахад нээгдэнэ)
-.app-search-panel {
-  display: none;
-  border-top: 1px solid var(--border);
-  background: var(--bulma-scheme-main);
-  padding-block: 0.75rem;
-  &.is-open {
-    display: block;
-    animation: app-fade 0.2s ease both;
-  }
-  .container {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .icon {
-    color: var(--text-soft);
-  }
-  .input {
-    flex: 1;
-  }
-}
-
 // Хар хөх цэсний зурвас
 .app-navbar {
   background: $primaryColor;
@@ -219,10 +196,6 @@
     &.is-active {
       display: block;
     }
-  }
-  // Утсан дээр 🔍 товч нуугдсан тул хайлтын мөр burger цэстэй хамт нээгдэнэ
-  .app-header:has(.app-navbar.is-active) .app-search-panel {
-    display: block;
   }
   .app-navbar-links {
     flex-direction: column;

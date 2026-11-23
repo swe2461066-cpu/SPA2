@@ -29,7 +29,7 @@ export function renderNavbar() {
   return `
     <header class="app-header">
       <div class="container app-topbar">
-        <button class="app-top-search" id="searchToggle" type="button" aria-label="${t("header.search")}" aria-expanded="false" aria-controls="headerSearch" title="${t("header.search")}">
+        <button class="app-top-search" id="searchToggle" type="button" aria-label="${t("header.search")}" title="${t("header.search")}">
           <i class="fas fa-magnifying-glass"></i>
         </button>
         <a class="app-logo" href="#/home">
@@ -53,14 +53,6 @@ export function renderNavbar() {
           </button>
         </div>
       </div>
-      <form class="app-search-panel" id="headerSearch" role="search">
-        <div class="container">
-          <span class="icon"><i class="fas fa-magnifying-glass"></i></span>
-          <input class="input" name="q" type="search" autocomplete="off" maxlength="80"
-            placeholder="${t("header.searchPlaceholder")}" aria-label="${t("header.search")}" />
-          <button class="button is-primary" type="submit">${t("header.searchBtn")}</button>
-        </div>
-      </form>
       <nav class="app-navbar" id="topNavbar" aria-label="${t("nav.menu")}">
         <div class="container app-navbar-links">${links}</div>
       </nav>
@@ -135,33 +127,23 @@ export function setActiveNavLink(hash) {
   });
 }
 
-// Миний: 🔍 товч дарахад хайлтын мөр нээгдэнэ. Хайхад тэтгэлгийн хуудас руу ?q=... -тэй шилжинэ.
-// Утсан дээр хайлтын мөр burger цэс нээгдэхэд хамт харагдана (CSS).
-function initSearch() {
-  const toggle = document.getElementById("searchToggle");
-  const panel = document.getElementById("headerSearch");
-  if (!toggle || !panel) return;
-  const input = panel.elements.q;
+// Миний: 🔍 товч → "Тэтгэлгүүд" хуудасны хайлтын талбар руу шилжиж, курсорыг тэнд тавина.
+// Өмнө нь толгойд тусдаа хайлтын мөр нээгддэг байсан ч Тэтгэлгүүд хуудсанд 2 хайлт зэрэг харагдаж
+// байсан тул хасаад нэг л хайлтын талбар үлдээв.
+function focusPageSearch() {
+  const input = document.getElementById("searchInput");
+  if (!input) return false;
+  input.scrollIntoView({ block: "center", behavior: "smooth" });
+  input.focus({ preventScroll: true });
+  return true;
+}
 
-  const setOpen = (open) => {
-    panel.classList.toggle("is-open", open);
-    toggle.setAttribute("aria-expanded", String(open));
-    if (open) input.focus();
-  };
-  toggle.addEventListener("click", () => setOpen(!panel.classList.contains("is-open")));
-  panel.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      setOpen(false);
-      toggle.focus();
-    }
-  });
-  panel.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const q = input.value.trim();
-    setOpen(false);
-    setMenuOpen(false);
-    input.value = "";
-    window.location.hash = `#/scholarships${q ? `?q=${encodeURIComponent(q)}` : ""}`;
+function initSearch() {
+  document.getElementById("searchToggle")?.addEventListener("click", () => {
+    if (focusPageSearch()) return;
+    window.location.hash = "#/scholarships";
+    // Хуудас зурагдсаны дараа талбар руу фокуслана
+    window.addEventListener("hashchange", () => setTimeout(focusPageSearch, 0), { once: true });
   });
 }
 
